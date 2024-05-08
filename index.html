@@ -1,0 +1,499 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=0.1">
+    <title>随机小姐姐视频</title>
+    <link rel="stylesheet" href="Stylesheet1.css">
+
+    <!--使用最新版本（禁用F12，右键等，仅防小白o.O?）-->
+    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
+
+    <!-- 看板娘 -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+
+    <script>
+        //动态标题
+        var OriginTitile = document.title, titleTime;
+        document.addEventListener("visibilitychange", function () {
+            if (document.hidden) {
+                document.title = "╮(╯﹏╰）╭ 网页崩溃啦！"; clearTimeout(titleTime)
+            }
+            else {
+                document.title = "(/≧▽≦/) 咦！又好了！ "; titleTime = setTimeout(function () {
+                    document.title = OriginTitile
+                }, 1000)
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+   
+
+
+
+
+    <!--
+                   ▄              ▄
+                  ▌▒█           ▄▀▒▌
+                  ▌▒▒▀▄        ▀▒▒▒▐
+                 ▐▄▀▒▒▀▀▀▀▄▄▄▀▒▒▒▒▒▐
+               ▄▄▀▒▒▒▒▒▒▒▒▒▒▒█▒▒▄█▒▐
+             ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▐
+            ▐▒▒▒▄▄▄▒▒▒▒▒▒▒▒▒▒▒▒▒▀▄▒▒▌
+            ▌▒▒▐▄█▀▒▒▒▒▄▀█▄▒▒▒▒▒▒▒█▒▐
+           ▐▒▒▒▒▒▒▒▒▒▒▒▌██▀▒▒▒▒▒▒▒▒▀▄▌
+           ▌▒▀▄██▄▒▒▒▒▒▒▒▒▒▒▒░░░░▒▒▒▒▌
+           ▌▀▐▄█▄█▌▄▒▀▒▒▒▒▒▒░░░░░░▒▒▒▐
+          ▐▒▀▐▀▐▀▒▒▄▄▒▄▒▒▒  Teacher  ▒▌
+          ▐▒▒▒▀▀▄▄▒▒▒▄▒▒▒▒▒▒░░░░░░▒▒▒▐
+           ▌▒▒▒▒▒▒▀▀▀▒▒▒▒▒▒▒▒░░░░▒▒▒▒▌
+           ▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▐
+            ▀ wu-you ▒▒▒▒▒▒▒▒▒▒▒▄▒▒▒▒▌
+              ▀▄▒▒▒▒▒▒▒▒▒▒▄▄▄▀▒▒▒▒▄▀
+             ▐▀▒▀▄▄▄▄▄▄▀▀▀▒▒▒▒▒▄▄▀
+            ▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▀▀
+
+            --你好，世界！生活，从敲的第一行代码开始。祝您扒码愉快，有问题请留言。
+        -->
+
+    <!--鱼群跳跃-->
+    <div id="jsi-flying-fish-container"></div>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/763333529/img@main/1/js/script.js"></script>
+
+    <div class="image-time">      
+        <img id="dynamic-image" src="" alt="动态图像" /> 
+    </div>
+
+    <div class="audio-container">
+        <div class="audio-description" id="description"></div>
+        <audio id="audio_player" controls></audio>
+        <div class="refresh-button" onclick="refreshAudio()"></div>
+    </div>
+
+
+    <div id="video-container">
+        <video id="player" controls="controls"></video>
+        <div id="buttons">
+            <button id="switch">连续播放: 开</button>
+            <button id="next">换一个</button>
+            <div id="source-list-container">
+                <!--添加容器包裹切换源按钮和下拉列表-->
+                <button id="change-source">切换源</button>
+                <div id="source-list">
+                    <ul>
+                        <li data-source="http://v.nrzj.vip/video.php">默认源</li>
+                        <li data-source="https://api.xyttkx.cn/yzsp.php">颜值</li>
+                        <li data-source="https://api.xyttkx.cn/mtsp.php">美腿</li>
+                        <li data-source="https://api.xyttkx.cn/tmsp.php">甜妹</li>
+                        <li data-source="https://api.xyttkx.cn/hfsp.php">汉服</li>
+                        <li data-source="https://api.xyttkx.cn/rwsp.php">热舞</li>
+                        <li data-source="https://api.xyttkx.cn/ngsp.php">女高</li>
+                        <li data-source="https://api.xyttkx.cn/sgsp.php">帅哥</li>
+                        <li data-source="https://api.xyttkx.cn/xxfcsp.php">小新翻唱</li>
+                        <li data-source="https://www.hhlqilongzhu.cn/api/MP4_feiyangyang.php">沸羊羊翻唱</li>
+                        <li data-source="https://www.hhlqilongzhu.cn/api/MP4_xiyangyang.php">喜羊羊翻唱</li>
+                        <li data-source="https://api.xyttkx.cn/lyyfcsp.php">懒羊羊翻唱</li>
+                        <li data-source="https://api.heylie.cn/api/video?v=xq">美女</li>
+                        <li data-source="http://txvo.cn/API/shipintuijian/">美女视频</li>
+                        <li data-source="https://www.wudada.online/Api/NewSp">高质量美女</li>
+                        <li data-source="https://jx.iqfk.top/api/cjsp.php">吃鸡语录视频</li>
+                        <li data-source="https://jx.iqfk.top/api/sjsp.php">随机小姐姐视频</li>
+
+                        <li data-source="https://api.qvqa.cn/heibai?name=baisi">白丝小姐姐视频</li>
+                        <li data-source="https://api.qvqa.cn/heibai?name=heisi">黑丝小姐姐视频</li>
+                        <li data-source="https://api.heylie.cn/api/video/?v=emo">emo风小姐姐视频</li>
+
+                        <!--这个使用iframe元素进行嵌入处理-->
+                        <li id="embedded-video" data-source="http://api.mrz6.cn/sese/yuzu_mp4.php">极品玉足视频</li>
+
+                        <!--标记，直接访问刷新无效的-->
+                        <li data-source="http://api.akun666.top/API/ntcos.php">逆天COS</li>
+                        <li data-source="http://api.akun666.top/API/nvgao.php">纯情女高</li>
+                        <li data-source="http://api.akun666.top/API/tianmei.php">甜妹1</li>
+                        <li data-source="http://api.akun666.top/API/luoli.php">萝莉</li>
+                        <li data-source="http://api.akun666.top/API/heisi.php">黑丝</li>
+                        <li data-source="http://api.akun666.top/API/baisi.php">白丝</li>
+                        <li data-source="http://api.akun666.top/API/sjsp.php">美女1</li>
+                        <li data-source="http://api.akun666.top/API/sbml.php">双倍快乐</li>
+                        <li data-source="http://api.akun666.top/API/daxuesheng.php">女大学生</li>
+                        <li data-source="http://api.ovoe.top/API/mhyx.php">漫画芋系</li>
+                        <li data-source="http://api.ovoe.top/API/kdbz.php">卡点变装</li>
+                        <li data-source="http://api.ovoe.top/API/ycyy.php">纯欲</li>
+                        <li data-source="http://api.ovoe.top/API/cqnug.php">纯情女高1</li>
+                        <li data-source="http://api.ovoe.top/API/gjzs.php">感觉至上</li>
+                        <li data-source="http://api.ovoe.top/API/dmsp.php">动漫卡点</li>
+                        <li data-source="http://api.ovoe.top/API/slxl.php">少萝系列</li>
+                        <li data-source="http://api.ovoe.top/API/hbss.php">黑白双煞视频</li>
+                        <li data-source="http://api.ovoe.top/API/ddxl.php">吊带系列</li>
+                        <li data-source="http://api.ovoe.top/API/llxl.php">萝莉系列</li>
+                        <li data-source="http://api.ovoe.top/API/tmxl.php">甜妹系列</li>
+                        <li data-source="http://api.ovoe.top/API/bssp.php">白丝1</li>
+                        <li data-source="http://api.ovoe.top/API/gjbz.php">光剑变装视频</li>
+                        <li data-source="http://api.ovoe.top/API/hssp.php">黑丝1</li>
+                        <li data-source="http://api.ovoe.top/API/ndym.php">你的欲梦</li>
+                        <li data-source="https://qtkj.love/api/qttj.php">美女2</li>
+
+                        <li data-source="http://api.yujn.cn/api/zzxjj.php">小姐姐</li>
+                        <li data-source="http://api.yujn.cn/api/xjj.php">稳定小姐姐</li>
+                        <li data-source="https://api.yujn.cn/api/nvda.php">快手女大学生系列</li>
+                        <li data-source="https://api.yujn.cn/api/tongtong.php">抖音瞳瞳系列</li>
+                        <li data-source="http://api.yujn.cn/api/juhexjj.php">各类小姐姐</li>
+                        <li data-source="http://api.yujn.cn/api/chuanda.php">美女穿搭</li>
+                        <li data-source="http://api.yujn.cn/api/jjy.php">鞠婧祎系列</li>
+                        <li data-source="http://api.yujn.cn/api/wmsc.php">身材系列</li>
+                        <li data-source="http://api.yujn.cn/api/shejie.php">杀猪饲料蛇姐</li>
+                        <li data-source="http://api.yujn.cn/api/zrn.php">章若楠系列</li>
+                        <li data-source="http://api.yujn.cn/api/mengwa.php">萌娃系列</li>
+                        <li data-source="http://api.yujn.cn/api/hanfu.php">汉服古风系列</li>
+                        <li data-source="http://api.yujn.cn/api/jpmt.php">玉足</li>
+                        <li data-source="http://api.yujn.cn/api/manyao.php">慢摇系列</li>
+                        <li data-source="http://api.yujn.cn/api/diaodai.php">吊带系列</li>
+                        <li data-source="http://api.yujn.cn/api/qingchun.php">清纯系列</li>
+                        <li data-source="http://api.yujn.cn/api/nvgao.php">纯情女高系列</li>
+                        <li data-source="http://api.yujn.cn/api/jiepai.php">街拍系列</li>
+                        <li data-source="http://api.yujn.cn/api/ksbianzhuang.php">快手变装系列</li>
+                        <li data-source="https://api.yujn.cn/api/duilian.php">怼脸自拍</li>
+                        <li data-source=" http://api.yujn.cn/api/heisis.php">黑丝2</li>
+                        <li data-source=" http://api.yujn.cn/api/baisis.php">白丝2</li>
+                        <li data-source="https://api.yujn.cn/api/manzhan.php">漫展</li>
+                        <li data-source="http://api.yujn.cn/api/sbkl.php">双倍快乐1</li>
+                        <li data-source="http://api.yujn.cn/api/luoli.php">萝莉系列1</li>
+                        <li data-source="http://api.yujn.cn/api/ndym.php">你的欲梦1</li>
+                        <li data-source="http://api.yujn.cn/api/tianmei.php">甜妹系列（高质量）</li>
+                        <li data-source="http://api.yujn.cn/api/jksp.php">JK洛丽塔</li>
+                        <li data-source="http://api.yujn.cn/api/yuzu.php">玉足美腿</li>
+                        <li data-source="http://api.yujn.cn/api/xgg.php">帅哥1</li>
+                        <li data-source="http://api.yujn.cn/api/rewu.php">热舞</li>
+                        <li data-source="http://api.yujn.cn/api/manhuay.php">漫画芋</li>
+                        <li data-source="http://api.yujn.cn/api/xiaoxiao.php">抖音潇潇</li>
+                        <li data-source=" http://api.yujn.cn/api/bianzhuang.php?">抖音变装</li>
+                        <li data-source="http://api.yujn.cn/api/pcfjsp.php">二次元房间背景</li>
+                        <li data-source="http://api.yujn.cn/api/ksxjjsp.php">小姐姐视频</li>
+
+                        <li data-source="http://api.treason.cn/API/tuiapi.php">美女3</li>
+                        <li data-source="http://api.treason.cn/API/nbxx.php">蜡笔小新2</li>
+                        <li data-source="http://api.treason.cn/API/bpdnt.php">比奇堡男团</li>
+                        <li data-source="http://txvo.cn/API/lishituijian/"> 历史推荐</li>
+
+                        <li data-source="http://www.yujn.cn/api/dmsp.php">动漫视频</li>
+                        <li data-source="http://www.yujn.cn/api/xiaoxin.php">小新翻唱1</li>
+                        <li data-source="http://www.yujn.cn/api/lyy.php">懒洋洋翻唱1</li>
+
+                        <li data-source="https://api.zxz.ee/api/video/?format=&type=26">余震系列</li>
+                        <li data-source="https://api.gxsnote.cn/api.php?type=xjj">小姐姐视频</li>
+                        <li data-source="https://api.lq.mba/api/dm-xjj">小姐姐视频1</li>
+                        <li data-source="http://lx.linxi.icu/API/xjj.php">小姐姐视频2</li>
+                        <li data-source="http://api.qemao.com/api/douyin/">抖音小姐姐视频</li>
+                        <li data-source="https://v.api.aa1.cn/api/api-girl-11-02/index.php?type=video">抖音小姐姐视频1</li>
+                        <li data-source=" https://hefollo.com/apis.php?type=优质小姐姐视频">优质小姐姐视频</li>
+                        <li data-source="https://hefollo.com/apis.php?type=小姐姐视频">小姐姐视频3</li>
+                        <li data-source="https://777.cam/api/M/?type=302">抖音小姐姐视频2</li>
+
+                        <li data-source="https://api.71xk.com/api/video/v2">唱歌视频</li>
+                        <li data-source="https://api.71xk.com/api/video/v1">小姐姐视频4</li>
+
+                        <li data-source="https://api.mmp.cc/api/videox?type=mp4">小姐姐视频5</li>
+                        <li data-source="http://66.cnlt.cc/m6/video.php">小姐姐视频6</li>
+                        <li data-source="https://www.hhlqilongzhu.cn/api/MP4_dongman.php">高质量动漫混剪</li>
+                        <li data-source="https://api.lxphp.com/api/beautyvideo">美女3</li>
+                        <li data-source="https://api.cxr.cool/mm">美女4</li>
+                        <li data-source="https://api.bokexia.com/api/mn">美女5</li>
+                        <li data-source="https://api.shserve.cn/api/xjj?type=video">美女6</li>
+                        <!--标记-->
+                        <!--会返回视频链接-->
+                        <li id="special" data-source="http://www.wudada.online/Api/ScSp">随机美少女视频</li>
+                        <li id="special" data-source="https://v2.api-m.com/api/meinv">美女7</li>
+                        <li id="special" data-source="https://api.71xk.com/api/video?msg=v1&type=video">精选小姐姐</li>
+                        <li id="special" data-source="https://api.71xk.com/api/video?msg=v2&type=video">唱歌</li>
+                        <li id="special" data-source="https://api.71xk.com/api/video?msg=v4&type=video">动态壁纸</li>
+                        <li id="special2">极品随机视频</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="YiYan"></div>
+
+    <div id="embedded-video-container"></div>
+
+    <button id="next-video-btn">下一个视频</button>
+
+    <div id="datetime-container">
+        本站已运行[<span id=span_dt_dt style="color: #228B22;"></span>
+        <script language=javascript>
+            function show_date_time() {
+
+                window.setTimeout("show_date_time()", 1000);
+
+                BirthDay = new Date("5/6/2024 17:37:00");
+
+                today = new Date();
+
+                timeold = (today.getTime() - BirthDay.getTime());
+
+                sectimeold = timeold / 1000
+
+                secondsold = Math.floor(sectimeold);
+
+                msPerDay = 24 * 60 * 60 * 1000
+
+                e_daysold = timeold / msPerDay
+
+                daysold = Math.floor(e_daysold);
+
+                e_hrsold = (e_daysold - daysold) * 24;
+
+                hrsold = Math.floor(e_hrsold);
+
+                e_minsold = (e_hrsold - hrsold) * 60;
+
+                minsold = Math.floor((e_hrsold - hrsold) * 60);
+
+                seconds = Math.floor((e_minsold - minsold) * 60);
+
+                span_dt_dt.innerHTML = '<font style=color:#FF0000>' + daysold + '</font> 天 <font style=color:#FF0000>' + hrsold + '</font> 时 <font style=color:#FF0000>' + minsold + '</font> 分 <font style=color:#FF0000>' + seconds + '</font> 秒';
+
+            }
+
+            show_date_time();</script>]
+    </div>
+
+
+    <script src="randomVideo.js" charset="GB2312"></script>
+
+    <script src="audio.js" charset="UTF-8"></script>
+
+    <script>
+        // 鼠标点击特效
+        (function () {
+            var a_idx = 0;
+            window.onclick = function (event) {
+                var a = new Array("❤富强❤", "❤民主❤", "❤文明❤", "❤和谐❤", "❤自由❤", "❤平等❤", "❤公正❤", "❤法治❤", "❤爱国❤",
+                    "❤敬业❤", "❤诚信❤", "❤友善❤");
+
+                var heart = document.createElement("b"); //创建b元素
+                heart.onselectstart = new Function('event.returnValue=false'); //防止拖动
+
+                document.body.appendChild(heart).innerHTML = a[a_idx]; //将b元素添加到页面上
+                a_idx = (a_idx + 1) % a.length;
+                heart.style.cssText = "position: fixed;left:-100%;"; //给p元素设置样式
+
+                var f = 16, // 字体大小
+                    x = event.clientX - f / 2, // 横坐标
+                    y = event.clientY - f, // 纵坐标
+                    c = randomColor(), // 随机颜色
+                    a = 1, // 透明度
+                    s = 1.2; // 放大缩小
+
+                var timer = setInterval(function () { //添加定时器
+                    if (a <= 0) {
+                        document.body.removeChild(heart);
+                        clearInterval(timer);
+                    } else {
+                        heart.style.cssText = "font-size:16px;cursor: default;position: fixed;color:" +
+                            c + ";left:" + x + "px;top:" + y + "px;opacity:" + a + ";transform:scale(" +
+                            s + ");";
+
+                        y--;
+                        a -= 0.016;
+                        s += 0.002;
+                    }
+                }, 15)
+
+            }
+            // 随机颜色
+            function randomColor() {
+                return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + ")";
+
+            }
+        }());
+    </script>
+
+    <!--你屏幕有根毛-->
+    <script>
+        !function () {
+            var bottom = Math.floor(60 * Math.random()),
+                right = Math.floor(50 * Math.random()),
+                rotate = Math.floor(360 * Math.random());
+            var foolsEgg = document.createElement("img");
+            foolsEgg.src = "https://search-operate.cdn.bcebos.com/b028c278cbb84660f8bde79d819bc30b.png";
+            foolsEgg.style.position = "fixed";
+            foolsEgg.style.bottom = "".concat(bottom, "%");
+            foolsEgg.style.right = "".concat(right, "%");
+            foolsEgg.style.zIndex = "9999";
+            foolsEgg.style.pointerEvents = "none";
+            foolsEgg.style.width = "40%";
+            foolsEgg.style.maxWidth = "190px";
+            foolsEgg.style.transform = "".concat("rotate(", rotate, "deg)");
+            document.body.append(foolsEgg);
+        }();
+    </script>
+
+    <!--图片实时更新(这个api加载太慢)-->
+    <script>
+        function updateImage() {
+            var imgElement = document.getElementById('dynamic-image');
+            var currentTime = new Date(); // 获取当前时间
+            var hour = currentTime.getHours(); // 获取当前小时
+            var minute = currentTime.getMinutes(); // 获取当前分钟
+            var second = currentTime.getSeconds(); // 获取当前秒钟
+
+            // 构造 API URL，将当前时间信息作为参数传递
+            var apiUrl = "https://api.vvhan.com/api/ipCard?tip=Hello 欢迎光临本站&time=" + hour + ":" + minute + ":" + second;
+
+            // 设置图像的 src 属性为动态生成的 URL
+            imgElement.src = apiUrl;
+        }
+
+        // 首次加载图像
+        updateImage();
+
+        // 每隔一秒更新一次图像
+        setInterval(updateImage, 1000);
+    </script>
+
+
+    <script>
+        var YiYan = function (element) {
+            function randomColor() {
+                return colorPalette[Math.floor(Math.random() * colorPalette.length)];
+            }
+
+            function randomCharacter() {
+                return String.fromCharCode(94 * Math.random() + 33);
+            }
+
+            function createRandomSpan(spanLength) {
+                for (var fragment = document.createDocumentFragment(), i = 0; spanLength > i; i++) {
+                    var span = document.createElement("span");
+                    span.textContent = randomCharacter();
+                    span.style.color = randomColor();
+                    fragment.appendChild(span);
+                }
+                return fragment;
+            }
+
+            function updateTextAnimation() {
+                // 清除当前存在的定时器
+                if (currentTimeout) {
+                    clearTimeout(currentTimeout);
+                }
+
+                // 获取当前语录
+                var currentQuote = quotes[animationState.quoteIndex];
+
+                // 更新动画文字内容
+                if (animationState.step) {
+                    animationState.step--; // 步进减少
+                } else {
+                    // 如果步进为 0，则执行以下操作
+
+                    // 检查是否还有前缀需要添加
+                    if (animationState.prefixPosition < textPrefix.length) {
+                        if (animationState.prefixPosition >= 0) {
+                            animationState.displayText += textPrefix[animationState.prefixPosition];
+                        }
+                        animationState.prefixPosition++;
+                    } else {
+                        // 根据动画方向进行文字内容的更新
+                        if (animationState.direction === "forward") {
+                            if (animationState.skillPosition < currentQuote.length) {
+                                animationState.displayText += currentQuote[animationState.skillPosition];
+                                animationState.skillPosition++;
+                            } else {
+                                if (animationState.delay) {
+                                    animationState.delay--;
+                                } else {
+                                    animationState.direction = "backward";
+                                    animationState.delay = backwardStep;
+                                }
+                            }
+                        } else {
+                            if (animationState.skillPosition > 0) {
+                                animationState.displayText = animationState.displayText.slice(0, -1);
+                                animationState.skillPosition--;
+                            } else {
+                                animationState.quoteIndex = (animationState.quoteIndex + 1) % quotes.length;
+                                animationState.direction = "forward";
+                            }
+                        }
+                    }
+                }
+
+                // 更新文本内容
+                element.textContent = animationState.displayText;
+
+                // 创建随机样式的 `<span>` 元素并添加到文本中
+                var fragment = createRandomSpan(animationState.prefixPosition < textPrefix.length ?
+                    Math.min(maxSpanLength, maxSpanLength + animationState.prefixPosition) :
+                    Math.min(maxSpanLength, currentQuote.length - animationState.skillPosition));
+                element.appendChild(fragment);
+
+                // 设置下一次更新动画的定时器
+                currentTimeout = setTimeout(updateTextAnimation, animationInterval);
+            }
+
+
+            var currentTimeout = null; // 用于记录当前的定时器 ID
+
+            var textPrefix = "", // 动画中最初显示的文字内容
+                quotes = [], // 存储语录的数组
+                backwardStep = 2, // 文字动画后退的速度
+                forwardStep = 1, // 文字动画前进的速度
+                maxSpanLength = 5,
+                animationInterval = 75, // 更新文字动画的时间间隔
+                colorPalette = ["rgb(110,64,170)", "rgb(150,61,179)", "rgb(191,60,175)", "rgb(228,65,157)", "rgb(254,75,131)", "rgb(255,94,99)", "rgb(255,120,71)", "rgb(251,150,51)", "rgb(226,183,47)", "rgb(198,214,60)", "rgb(175,240,91)", "rgb(127,246,88)", "rgb(82,246,103)", "rgb(48,239,130)", "rgb(29,223,163)", "rgb(26,199,194)", "rgb(35,171,216)", "rgb(54,140,225)", "rgb(76,110,219)", "rgb(96,84,200)"],
+
+                // 动画的状态对象，包含了当前动画的各种状态信息，如显示的文字内容、前缀位置、语录索引、当前字符位置、步进值、方向和延迟等。
+                animationState = {
+                    displayText: "",
+                    prefixPosition: 0,
+                    quoteIndex: 0,
+                    skillPosition: 0,
+                    step: 0,
+                    direction: "forward",
+                    delay: 0
+                };
+
+            // 定义获取语录并更新显示的函数
+            function fetchAndDisplayRandomQuote() {
+                fetch('https://api.gumengya.com/Api/YiYan')
+                    .then(response => response.json())
+                    .then(data => {
+                        quotes = [data.data.text];
+                        updateTextAnimation(); // 更新动画显示
+                    })
+                    .catch(error => console.error('获取语录时出错:', error));
+            }
+
+            // 初始获取并显示语录
+            fetchAndDisplayRandomQuote();
+            // 每隔十秒更新一次语录
+            setInterval(fetchAndDisplayRandomQuote, 10000);
+        };
+
+        YiYan(document.getElementById("YiYan"));
+    </script>
+
+    <script src="https://unpkg.com/magic-snowflakes@6.0.1/dist/snowflakes.min.js"></script>
+    <script>var sf = new Snowflakes({ color: "#CCCCCC" });</script>
+
+    <!--磁感线背景特效-->
+    <script src="https://api.cenguigui.cn/api/ciganxian"></script>
+
+    <!--网页点击音效-->
+    <script src="https://cdn.staticfile.net/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://api.cenguigui.cn/api/bjyinyue"></script>
+    <!--黑猫与蕾姆-->
+    <script src="https://api.cenguigui.cn/api/leimu"></script>
+
+</body>
+</html>
