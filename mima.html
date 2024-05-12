@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>您访问的网站开启密码保护功能，请输入访问密码</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial,Helvetica,"华文细黑","微软雅黑",sans-serif
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%
+        }
+
+        body {
+            background-color: #313946
+        }
+
+        .cfb {
+            clear: both
+        }
+
+        .psdp-title {
+            color: #d3d4d4;
+            display: block;
+            text-align: center
+        }
+
+        .psdp-text {
+            color: #818284;
+            text-align: center
+        }
+
+        .psdp-input {
+            position: relative
+        }
+
+            .psdp-input input:focus {
+                outline: 0
+            }
+
+            .psdp-input .psdp-pwd {
+                display: inline-block;
+                color: #797b7e;
+                border: 0;
+                background: #444a56
+            }
+
+            .psdp-input .psdp-btn {
+                display: inline-block;
+                color: #f5fbf7;
+                border: 0;
+                background: #24c673;
+                float: right;
+                cursor: pointer
+            }
+
+            .psdp-input label {
+                text-indent: 10px !important
+            }
+
+        .padp-hint {
+            display: block;
+            color: #ed4e62;
+            margin-top: 10px
+        }
+
+        @media(max-width:319px) {
+            #psdp-wrap {
+                width: 100%;
+                height: 100%;
+                background: url(img/suo.png) center 90px no-repeat;
+                background-size: 100% auto
+            }
+
+            .psdp-cont {
+                padding-top: 360px
+            }
+
+            .psdp-title {
+                font-size: 13px;
+                margin-bottom: 30px
+            }
+
+            .psdp-text {
+                font-size: 12px;
+                margin: 70px 10px 30px 10px;
+                line-height: 20px
+            }
+
+            .psdp-input {
+                width: 284px;
+                margin: 0 auto
+            }
+
+                .psdp-input .psdp-pwd {
+                    font-size: 13px;
+                    height: 40px;
+                    line-height: 40px;
+                    width: 186px;
+                    padding-left: 10px
+                }
+
+                .psdp-input .psdp-btn {
+                    font-size: 13px;
+                    height: 40px;
+                    line-height: 40px;
+                    width: 80px;
+                    background: #24c673
+                }
+
+            .padp-hint {
+                font-size: 13px
+            }
+
+            .psdp-input label {
+                line-height: 40px !important
+            }
+        }
+
+        @media(min-width:320px) and (max-width:479px) {
+            #psdp-wrap {
+                width: 320px;
+                margin: 0 auto;
+                height: 100%;
+                background: url(img/suo.png) center 90px no-repeat;
+                background-size: 320px auto
+            }
+
+            .psdp-cont {
+                padding-top: 300px
+            }
+
+            .psdp-title {
+                font-size: 13px;
+                margin-bottom: 10px
+            }
+
+            .psdp-text {
+                font-size: 12px;
+                margin: 10px auto 0 auto;
+                line-height: 20px
+            }
+
+            .psdp-input {
+                width: 296px;
+                margin: 0 auto
+            }
+
+                .psdp-input .psdp-pwd {
+                    font-size: 13px;
+                    height: 40px;
+                    line-height: 40px;
+                    width: 186px;
+                    padding-left: 10px
+                }
+
+                .psdp-input .psdp-btn {
+                    font-size: 13px;
+                    height: 40px;
+                    line-height: 40px;
+                    width: 80px;
+                    background: #24c673
+                }
+
+            .padp-hint {
+                font-size: 13px
+            }
+
+            .psdp-input label {
+                line-height: 40px !important
+            }
+        }
+
+        @media(min-width:480px) and (max-width:767px) {
+            #psdp-wrap {
+                width: 400px;
+                margin: 0 auto;
+                height: 100%;
+                background: url(img/suo.png) center 90px no-repeat;
+                background-size: 400px auto
+            }
+
+            .psdp-cont {
+                padding-top: 400px
+            }
+
+            .psdp-title {
+                font-size: 18px;
+                margin-bottom: 42px
+            }
+
+            .psdp-text {
+                font-size: 14px;
+                margin: 70px 10px 30px 10px
+            }
+
+            .psdp-input {
+                width: 400px;
+                margin: 0 auto
+            }
+
+                .psdp-input .psdp-pwd {
+                    font-size: 16px;
+                    height: 55px;
+                    line-height: 55px;
+                    width: 262px;
+                    padding-left: 10px
+                }
+
+                .psdp-input .psdp-btn {
+                    font-size: 16px;
+                    height: 55px;
+                    line-height: 55px;
+                    width: 110px
+                }
+
+            .padp-hint {
+                font-size: 16px
+            }
+
+            .psdp-input label {
+                line-height: 55px !important
+            }
+        }
+
+        @media(min-width:768px) {
+            #psdp-wrap {
+                width: 660px;
+                margin: 0 auto;
+                height: 100%;
+                background: url(img/suo.png) center 90px no-repeat;
+                background-size: 400px auto
+            }
+
+            .psdp-cont {
+                padding-top: 400px
+            }
+
+            .psdp-title {
+                font-size: 18px;
+                margin-bottom: 42px
+            }
+
+            .psdp-text {
+                font-size: 16px;
+                margin: 30px auto;
+                width: 480px
+            }
+
+            .psdp-input {
+                width: 660px;
+                margin: 0 auto
+            }
+
+                .psdp-input .psdp-pwd {
+                    font-size: 16px;
+                    height: 62px;
+                    line-height: 62px;
+                    width: 445px;
+                    padding-left: 10px
+                }
+
+                .psdp-input .psdp-btn {
+                    font-size: 16px;
+                    height: 62px;
+                    line-height: 62px;
+                    width: 185px
+                }
+
+            .padp-hint {
+                font-size: 16px
+            }
+
+            .psdp-input label {
+                line-height: 62px !important
+            }
+        }
+    </style>
+
+</head>
+
+<body style="position: static;">
+    <div id="psdp-wrap">
+        <div class="psdp-cont">
+            <span class="psdp-title">您访问的网站开启密码保护功能，请输入访问密码</span>
+            <div class="psdp-input">
+                <input class="psdp-btn" type="submit" id="chkBtn" value="确定" onclick="chkBtn()">
+                <input class="psdp-pwd" type="password" name="accessPassword" id="password" placeholder="访问密码">
+                <div class="cfb"></div>
+                <span class="padp-hint" id="notice_accessPassword" style="display:none">请输入访问密码！</span>
+            </div>
+            <p class="psdp-text">Copy li-ming1 2024</p>
+        </div>
+    </div>
+    <script>
+        document.getElementById('chkBtn').addEventListener('click', function () {
+            var password = document.getElementById("password").value;
+            if (password == '666666') {//这里666666是密码
+                window.location.href = 'https://li-ming1.github.io/';//这里改跳转页面
+            } else {
+                alert('抱歉，访问密码错误！')
+            }
+        })
+    </script>
+</body>
+
+</html>
