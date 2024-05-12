@@ -8,16 +8,14 @@
 
     <script type="text/javascript">
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        // 显示警告弹窗，但禁用确认按钮
-        var result = confirm("抱歉，此页面仅允许在 PC 端访问。");
-            if(result){
-            // 如果用户尝试点击确认按钮，不执行任何操作
-            } else {
-                // 延迟 3 秒后执行重定向操作
-                setTimeout(function(){
-                    window.location.href = "https://www.baidu.com";
-                }, 3000); // 3000 毫秒 = 3 秒
-            }
+       // 延迟 5 秒后执行重定向操作
+        setTimeout(function () {
+            window.location.replace("https://www.baidu.com");
+            // 在重定向之后，修改浏览器历史记录，使得用户无法通过回退按钮返回到原页面
+            window.history.pushState({}, document.title, window.location.href);
+        }, 5000); 
+        // 如果是移动端，则执行弹窗
+        alert("抱歉，此页面仅允许在 PC 端访问。");
         }
     </script>
 
