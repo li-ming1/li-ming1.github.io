@@ -184,34 +184,6 @@ window.addEventListener('load', function () {
 
 
 
-// 图片实时更新
-function updateImage() {
-    var imgElement = document.getElementById('dynamic-image');
-    var currentTime = new Date(); // 获取当前时间
-    var hour = currentTime.getHours(); // 获取当前小时
-    var minute = currentTime.getMinutes(); // 获取当前分钟
-    var second = currentTime.getSeconds(); // 获取当前秒钟
-
-    // 构造本地时间信息作为参数传递
-    var localTime = hour + ":" + minute + ":" + second;
-
-    // 构造 API URL，将本地时间信息作为参数传递
-    var apiUrl = "https://api.vvhan.com/api/ipCard?tip=Hello 欢迎光临本站&time=" + localTime;
-
-    // 设置图像的 src 属性为动态生成的 URL
-    imgElement.src = apiUrl;
-}
-
-// 首次加载图像
-updateImage();
-
-// 每隔一秒更新一次图像
-setInterval(updateImage, 1000);
-
-
-
-
-
 // 随机一言
 var YiYan = function (element) {
     function randomColor() {
