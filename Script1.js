@@ -355,10 +355,12 @@ function refreshAudio() {
     var description = document.getElementById('description');
     // 随机选择音频源
     var audioSources = [
-        { src: "http://api.yujn.cn/api/lvcha.php", description: "绿茶语言包" },
-        { src: "http://api.yujn.cn/api/sjkunkun.php", description: "iqun语言包" },
-        { src: "https://api.zxz.ee/api/bbyy", description: "叫爸爸语言包" },
-        { src: "https://api.zxz.ee/api/sjyjsj", description: "御姐撒娇语言包" }
+        { src: "http://api.yujn.cn/api/lvcha.php", description: "绿茶语音包" },
+        { src: "http://api.yujn.cn/api/sjkunkun.php", description: "iqun语音包" },
+        { src: "https://api.zxz.ee/api/bbyy", description: "叫爸爸语音包" },
+        { src: "https://api.zxz.ee/api/sjyjsj", description: "御姐撒娇语音包" },
+        { src: "http://api.yujn.cn/api/and.php", description: "阿脑袋可爱配音" },
+        { src: "http://api.yujn.cn/api/yujie.php", description: "随机御姐撒娇语音" }       
     ];
     var randomIndex = Math.floor(Math.random() * audioSources.length);
     var randomSource = audioSources[randomIndex];
