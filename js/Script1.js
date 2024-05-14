@@ -528,9 +528,9 @@ console.log("%c%c站长QQ%c2707541940", "line-height:26px;", "line-height:16px;p
 function getRandomNoticeContent() {
     // 定义一组不同的通知内容及其链接
     var noticeContents = [
-        { text: "客官已经看了5分钟哦，请放松一下眼睛，或者玩一玩贪吃蛇哦。", color: "#ff0000", link: "https://www.baidu.com" },
-        { text: "客官已经看了5分钟哦，请放松一下眼睛，或者玩一玩吃豆人小游戏哦。", color: "#ff0000", link: "https://www.douyin.com/" },
-        { text: "客官已经看了5分钟哦，请放松一下眼睛，或者玩一玩僵尸失重掉落解压小游戏哦。", color: "#ff0000", link: "https://www.bilibili.com/" },
+        { text: "客官已经看了5分钟哦，请放松一下眼睛，或者玩一玩贪吃蛇哦。", color: "#ff0000", link: "https://li-ming1.github.io/tcs.html" },
+        { text: "客官已经看了5分钟哦，请放松一下眼睛，或者玩一玩吃豆人小游戏哦。", color: "#ff0000", link: "https://li-ming1.github.io/cdouren.html" },
+        { text: "客官已经看了5分钟哦，请放松一下眼睛，或者玩一玩僵尸失重掉落解压小游戏哦。", color: "#ff0000", link: "https://li-ming1.github.io/jshi.html" },
     ];
     // 随机选择一个通知内容
     var randomIndex = Math.floor(Math.random() * noticeContents.length);
