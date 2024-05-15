@@ -193,7 +193,7 @@ body, html {
     transform: translateY(-50%);
     width: 50px;
     height: 50px;
-    background-image: url("img/shuaxin.svg");
+    background-image: url("/img/shuaxin.svg");
     background-size: cover;
     cursor: pointer;
 }
